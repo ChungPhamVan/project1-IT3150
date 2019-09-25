@@ -1,0 +1,12 @@
+<% if(errorsArr != "") { %> 
+  <!-- Nếu có lỗi validation -->
+  <% errorsArr.forEach((item) => { %>
+    <script>openDangky();</script>
+    <div class="alert alert-danger"><%- item %></div>
+  <% }); %>
+<% } %>
+
+<% if(successArr != "") { %>
+  <script>openDangnhap();</script>
+  <div class="alert alert-success"><%- successArr %></div>
+<% } %>

@@ -1,0 +1,175 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.modal-footer .forgot.login-footer {
+    text-align: center;
+}
+
+.modal-footer .forgot span {
+    color: #5a5a5a;
+}
+
+.box .form input.btn.btn-success {
+    /* margin-top: 30px; */
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.form input.form-control {
+    font-size: 18px;
+}
+
+.form input.form-control[type="password"] {
+    margin-top: 20px;
+}
+
+.content .division .line {
+    /* height: 1px; */
+    width: 40%;
+    border-top: 1px solid #a0a0a0;
+}
+
+.content .division {
+    display: flex;
+    color: black;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+
+.content .social a.circle {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    font-size: 2.6rem;
+    color: #f9f9f9;
+    background: #e20000;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.content .social a#facebook_login {
+    background: #6464af;
+}
+
+.modal-header h4.modal-title {
+    color: #9e9e9e;
+}
+
+.col-sm-8 .khung-dang-nhap {
+    position: absolute;
+    width: 100%;
+    bottom: 50%;
+}
+
+a.btn.hainut {
+    width: 100%;
+    color: #ffd07a;
+    font-size: 2rem;
+    border: 1px solid #ffd07a;
+    transition: 0.2s;
+    padding: 10px 12px;
+}
+
+a.btn.hainut:hover {
+    background-color: #2980b9;
+    color: #ecf0f1;
+    /* border-color: #2980b9; */
+}
+
+
+span.tac-gia a {
+    color: white;
+}
+
+span.tac-gia a:hover, span.tac-gia a:active, span.tac-gia a:visited, span.tac-gia a:focus, span.tac-gia a:focus-within {
+    color: gainsboro;
+    text-decoration: none;
+}
+
+span.tac-gia {
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+@import url(https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap&subset=vietnamese);
+body {
+    color: white;
+    background: url(../images/background/background-image-login.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    /* width: 198vh; */
+}
+
+.content .social {
+    display: flex;
+    justify-content: space-evenly;
+}
+.container {
+  height: 100% !important;
+}
+.col-sm-8 .row h1.tieu-de {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    font-family: 'Arimo', sans-serif !important;
+}
+@media screen and (max-width: 576px) {
+  span.tac-gia {
+    font-size: 1.4rem;
+  }
+
+  .col-sm-8 .row h1.tieu-de {
+      font-size: 2.2rem;
+  }
+  .col-sm-8 .khung-dang-nhap {
+    bottom: 25%;
+  }
+  body {
+    position: static;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 577px) {
+
+  span.tac-gia {
+      font-size: 1.7rem;
+  }
+
+  .col-sm-8 .row h1.tieu-de {
+      font-size: 2.6rem;
+  }
+  .col-sm-8 .khung-dang-nhap {
+    bottom: 25%;
+  }
+  body {
+    position: static;
+  }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  a.btn.hainut {
+    font-size: 1.7rem;
+    padding: 8px 10px;
+  }
+  .col-sm-8 .khung-dang-nhap {
+    bottom: 32%;
+  }
+}
+.container-fluid {
+  padding: 0px;
+  height: 100% !important;
+  background: #00000066;
+  width: 100% !important;
+}
+.container-fluid .container .col-sm-8 {
+  height: 100% !important;
+  position: relative;
+}
+.khoi-cua-nut-dang-nhap {
+  height: 100%;
+}

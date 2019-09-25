@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Register</title>
+  <!-- thêm các link -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/AlertifyJS/build/css/alertify.css">
+  <link rel="stylesheet" href="css/authLogin.css">
+  <!-- thêm các script -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/AlertifyJS/build/alertify.js"></script>
+
+  <script type="text/javascript" src="js/authConfig.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="khung-dang-nhap">
+          <div class="row">
+            <h1 class="tieu-de">Đăng nhập hoặc tạo tài khoản để truy cập trang web</h1>
+            <span class="tac-gia">Github: <a href="https://github.com/chungphamvan" target="_blank">Chung Pham Van</a></span>
+          </div>
+          <br>
+          <hr>
+          <br>
+          <div class="row">
+            <div class="col-sm-3 col-md-2"></div>
+            <div class="col-sm-6 col-md-8">
+              <div class="row">
+                <div class="col-sm-6 khoi-cua-nut-dang-nhap">
+                  <a class="btn btn-lg hainut nut-dang-nhap" href="javascript:void(0)" onclick="openDangnhap();">Đăng nhập</a>
+                </div>
+                <div class="col-sm-6">
+                  <a class="btn bnt-lg hainut nut-dang-ky" href="javascript:void(0)" onclick="openDangky();">Đăng ký</a>
+                </div>
+              </div>
+              <div class="col-sm-3 col-md-2"></div>          
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2"></div>
+    
+    <div class="modal fade login" id="loginModal">
+      <div class="modal-dialog login animated">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true" >
+              &times;
+            </button>
+            <h4 class="modal-title">Đăng nhập tài khoản</h4>
+          </div>
+          <div class="modal-body">
+            <%- include('alert'); %>
+            <%- include('login'); %>
+            <%- include('register'); %>
+          </div>
+          <div class="modal-footer">
+            <div class="forgot login-footer">
+              <span>Bạn chưa có tài khoản</span>
+              <a href="javascript: showRegisterForm();" >Đăng ký</a>
+            </div>
+            <div class="forgot register-footer" style="display: none">
+              <span>Bạn đã có tài khoản</span>
+              <a href="javascript: showLoginForm();" >Đăng nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
