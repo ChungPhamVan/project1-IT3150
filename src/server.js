@@ -6,6 +6,7 @@ import http from 'http';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';// lấy req.body từ form
 import connectFlash from 'connect-flash';// gửi thông báo lỗi trực tiếp validation về view
+import passport from 'passport'// hỗ trợ việc đăng nhập
 
 /**
  * import từ các file khác
@@ -28,6 +29,8 @@ configSession(app);// phải để sau connectDB() và lưu session
 configViewEngine(app);// gọi hàm view engine để hiển thị
 app.use(bodyParser.urlencoded({ extended: true }));// lấy data từ form
 app.use(connectFlash());// gửi trực tiếp thông báo lỗi validation về view
+app.use(passport.initialize()); // hỗ trợ đăng nhập
+app.use(passport.session());
 initRoutes(app);// hàm gọi các router trong file web
 
 server.listen(process.env.APP_PORT, process.env.APP_HOST, function() {

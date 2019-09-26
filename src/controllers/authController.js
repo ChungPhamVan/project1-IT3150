@@ -3,8 +3,9 @@ import { auth } from '../service/index.js';
 
 let getLoginRegister = (req, res, next) => {
   res.render("auth/master.ejs", {
-    errorsArr: req.flash("errorsArr"),// trường hợp redirect về lại nó khi phát sinh lỗi validation,
-    successArr: req.flash("successArr")// trường hợp redirect và gửi data thành công
+    errorsArr: req.flash("errorsArr"),// trường hợp redirect về lại nó khi phát sinh lỗi validation khi đk,
+    successArr: req.flash("successArr"),// trường hợp redirect và gửi data thành công khi đk
+    errorsArr_dangnhap: req.flash("errorsArr_dangnhap") // redirect lại khi đăng nhập
   });
 };
 
@@ -22,8 +23,10 @@ let postRegister = async (req, res, next) => {
   //Nếu dữ liệu đúng thì tiếp tục xử lý trong service
   let email = req.body.email;
   let password = req.body.password;
+  let kieu_http = req.protocol; // mặc định là có sẵn rồi
+  let ten_host = req.get("host");
   try {// bắt resolve từ service
-    let thongbao_thanhcong = await auth.register(email, password);// hàm phải đợi để service xử lý xong
+    let thongbao_thanhcong = await auth.register(email, password, kieu_http, ten_host);// hàm phải đợi để service xử lý xong
     req.flash("successArr", thongbao_thanhcong);
     return res.redirect('/login-register');
   } catch (error) {// bắt reject từ service
@@ -34,7 +37,22 @@ let postRegister = async (req, res, next) => {
   
 
 };
+
+let xacThucTaiKhoan = async (req, res, next) => {
+  let errorsArr = [];
+  try {
+    let xacThucThanhCong = await auth.xacThucTaiKhoan(req.params.verifyToken);
+    req.flash("successArr", xacThucThanhCong);
+    res.redirect('/login-register');
+  } catch (error) {
+    errorsArr.push(error);
+    req.flash("errorsArr", errorsArr);
+    res.redirect('/login-register');
+  }
+};
+
 module.exports = {
   getLoginRegister: getLoginRegister,
-  postRegister: postRegister
+  postRegister: postRegister,
+  xacThucTaiKhoan: xacThucTaiKhoan
 };

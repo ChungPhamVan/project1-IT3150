@@ -10,3 +10,8 @@
   <script>openDangnhap();</script>
   <div class="alert alert-success"><%- successArr %></div>
 <% } %>
+
+<% if(errorsArr_dangnhap.length) { %>
+  <script>openDangnhap();</script>
+  <div class="alert alert-danger"><%= errorsArr_dangnhap %></div>
+<% } %>

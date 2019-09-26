@@ -26,14 +26,34 @@ UserSchema.statics = {
   createNew(item) {
     return this.create(item);
   },
+  timKiemTheoId(id) {
+    return this.findById(id).exec();
+  },
   timKiemTheoEmail(email) {
     return this.findOne({
       "local.email": email
     }).exec();
+  },
+  xoaNguoiDung(id) {
+    return this.findByIdAndRemove(id).exec();
+  },
+  timNguoiDungTheoToken(token) {
+    return this.findOne({
+      "local.verifyToken": token
+    }).exec();
+  },
+  xacThucNguoiDungVaActive(token) {
+    return this.findOneAndUpdate(
+      { "local.verifyToken": token },
+      { 
+        "local.isActive": true,
+        "local.verifyToken": null // xóa verifyToken khi click link xác thực
+      }
+    ).exec();
   }
 };
-UserSchema.method = {
-  comparePassword(password) {
+UserSchema.methods = {
+  sosanhPassword(password) {
     return bcrypt.compare(password, this.local.password);
   }
 };
