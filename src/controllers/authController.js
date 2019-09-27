@@ -1,11 +1,13 @@
 import { validationResult } from 'express-validator/check';// lấy kết quả sau khi đi qua validation 
 import { auth } from '../service/index.js';
+import { transLogout } from '../../lang/vi';
 
 let getLoginRegister = (req, res, next) => {
   res.render("auth/master.ejs", {
     errorsArr: req.flash("errorsArr"),// trường hợp redirect về lại nó khi phát sinh lỗi validation khi đk,
     successArr: req.flash("successArr"),// trường hợp redirect và gửi data thành công khi đk
-    errorsArr_dangnhap: req.flash("errorsArr_dangnhap") // redirect lại khi đăng nhập
+    errorsArr_dangnhap: req.flash("errorsArr_dangnhap"), // redirect lại khi đăng nhập
+    success_dangxuat: req.flash("success_dangxuat")// redirect khi đăng xuất
   });
 };
 
@@ -51,8 +53,31 @@ let xacThucTaiKhoan = async (req, res, next) => {
   }
 };
 
+let getLogout = (req, res, next) => {
+  req.logout();// xóa passport của user trong session
+  req.flash("success_dangxuat", transLogout.dang_xuat_thanh_cong);
+  res.redirect("/login-register");
+};
+
+let kiemTraDangNhapChua = (req, res, next) => {
+  if(!req.isAuthenticated()) { // kiểm tra đăng nhập chưa
+    return res.redirect('/login-register');
+  }
+  next();// nếu rồi thì đi tiếp
+};
+
+let kiemTraDangXuatChua = (req, res, next) => {
+  if(req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+  next();
+}
+
 module.exports = {
   getLoginRegister: getLoginRegister,
   postRegister: postRegister,
-  xacThucTaiKhoan: xacThucTaiKhoan
+  xacThucTaiKhoan: xacThucTaiKhoan,
+  getLogout: getLogout,
+  kiemTraDangNhapChua: kiemTraDangNhapChua,
+  kiemTraDangXuatChua: kiemTraDangXuatChua
 };

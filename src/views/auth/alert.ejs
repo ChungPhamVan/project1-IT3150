@@ -15,3 +15,10 @@
   <script>openDangnhap();</script>
   <div class="alert alert-danger"><%= errorsArr_dangnhap %></div>
 <% } %>
+
+<% if(success_dangxuat.length) { %>
+  <script>
+    openDangnhap();
+  </script>
+  <div class="alert alert-success"><%= success_dangxuat %></div>
+<% } %>

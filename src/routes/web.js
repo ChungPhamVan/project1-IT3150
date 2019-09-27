@@ -11,18 +11,18 @@ initPassportLocal(); // xác thực qua passport local
 
 let router = express.Router();
 let initRoutes = (app) => {
-  router.get('/', home.getHome);// vào trang chủ
-  router.get('/login-register', auth.getLoginRegister);// vào trang đăng ký & đnag nhập
-  router.post('/register', authValid.register, auth.postRegister);// ấn nút đăng ký
-  router.get('/xac_thuc_tai_khoan/:verifyToken', auth.xacThucTaiKhoan); // link xác thực tài khoản
-  router.post('/login',
+  router.get('/', auth.kiemTraDangNhapChua, home.getHome);// vào trang chủ
+  router.get('/login-register', auth.kiemTraDangXuatChua, auth.getLoginRegister);// vào trang đăng ký & đnag nhập
+  router.post('/register', auth.kiemTraDangXuatChua, authValid.register, auth.postRegister);// ấn nút đăng ký
+  router.get('/xac_thuc_tai_khoan/:verifyToken', auth.kiemTraDangXuatChua, auth.xacThucTaiKhoan); // link xác thực tài khoản
+  router.post('/login', auth.kiemTraDangXuatChua,
     passport.authenticate("local", {
       successRedirect: "/", //nếu thành công thì đi đâu
       failureRedirect: "/login-register", // nếu thất bại thì đi đâu
       successFlash: true, // bật để truyền req.flash về view
       failureFlash: true
     }));
-  
+  router.get('/logout', auth.kiemTraDangNhapChua, auth.getLogout);
 
   return app.use("/", router);
 };

@@ -27,3 +27,6 @@ export const transMail = {
   xac_thuc_tai_khoan_thanh_cong: "Bạn hãy đăng nhập để truy cập trang web",
   da_kich_hoat_roi: "Tài khoản không tồn tại"
 };
+export const transLogout = {
+  dang_xuat_thanh_cong: "Đăng xuất tài khoản thành công"
+};
