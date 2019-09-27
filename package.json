@@ -11,7 +11,8 @@
   "description": "Bài tập lớn học phần Project1 - IT3150",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "pem": "^1.13.2"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -29,6 +30,7 @@
     "nodemailer": "^4.4.2",
     "nodemon": "^1.19.1",
     "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "uuid": "^3.3.2"
   },

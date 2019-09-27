@@ -7,6 +7,8 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';// lấy req.body từ form
 import connectFlash from 'connect-flash';// gửi thông báo lỗi trực tiếp validation về view
 import passport from 'passport'// hỗ trợ việc đăng nhập
+import pem from 'pem';
+import https from 'https';
 
 /**
  * import từ các file khác
@@ -15,8 +17,6 @@ import initRoutes from './routes/web.js';
 import connectDB from './config/connectDB.js';
 import configViewEngine from './config/viewEngine.js';
 import configSession from './config/session';
-
-
 
 dotenv.config();// gọi biến môi trường trong file .env
 

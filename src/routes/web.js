@@ -5,8 +5,10 @@ import { auth, home } from '../controllers/index.js';
 import { authValid } from '../validation/index.js';
 import passport from 'passport';
 import initPassportLocal from '../controllers/passportController/local';
+import initPassportFacebook from '../controllers/passportController/facebook';
 
 initPassportLocal(); // xác thực qua passport local
+initPassportFacebook(); // xác thực qua passport facebook
 
 
 let router = express.Router();
@@ -21,8 +23,20 @@ let initRoutes = (app) => {
       failureRedirect: "/login-register", // nếu thất bại thì đi đâu
       successFlash: true, // bật để truyền req.flash về view
       failureFlash: true
-    }));
+    }
+  ));
   router.get('/logout', auth.kiemTraDangNhapChua, auth.getLogout);
+  router.get('/auth/facebook',
+    passport.authenticate("facebook", {
+      scope: ["email"]
+    })
+  );
+  router.get("/auth/facebook/callback",
+    passport.authenticate("facebook", {
+      successRedirect: "/", //nếu thành công thì đi đâu
+      failureRedirect: "/login-register", // nếu thất bại thì đi đâu
+    })
+  );
 
   return app.use("/", router);
 };

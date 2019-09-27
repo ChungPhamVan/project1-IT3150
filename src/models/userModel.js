@@ -50,6 +50,11 @@ UserSchema.statics = {
         "local.verifyToken": null // xóa verifyToken khi click link xác thực
       }
     ).exec();
+  },
+  timKiemTheoFacebookId(uid) {
+    return this.findOne({
+      "facebook.uid": uid
+    }).exec();
   }
 };
 UserSchema.methods = {
