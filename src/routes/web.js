@@ -31,7 +31,7 @@ let initRoutes = (app) => {
   // đăng nhập qua facebook
   router.get('/auth/facebook', auth.kiemTraDangXuatChua,
     passport.authenticate("facebook", {
-      scope: ["email"]
+      scope: ["email", "profile"]
     })
   );
   router.get("/auth/facebook/callback", auth.kiemTraDangXuatChua,
@@ -43,7 +43,7 @@ let initRoutes = (app) => {
   // đăng nhập qua google
   router.get('/auth/google', auth.kiemTraDangXuatChua,
     passport.authenticate("google", {
-      scope: ["email"]
+      scope: ["email", "profile"]
     })
   );
   router.get("/auth/google/callback", auth.kiemTraDangXuatChua,

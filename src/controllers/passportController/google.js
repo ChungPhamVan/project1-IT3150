@@ -27,6 +27,7 @@ let initPassportGoogle = () => {
       // nếu chưa đnhập lần nào bằng gg
       let newUserItem = {
         username: profile.displayName,
+        avatar: profile.photos[0].value,
         local: {
           isActive: true // cái này có tài khoản gg rồi nên kh cần xác thực nữa
         },
