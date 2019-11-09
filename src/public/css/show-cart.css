@@ -1,0 +1,134 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.tieude.w-100.text-center.noproduct i.fa.fa-warning.d-block.mt-6 {
+    font-size: 3em;
+    color: #ff6060;
+}
+
+.tieude.w-100.text-center.noproduct {
+    font-size: 2em;
+}
+
+body .container-none-product {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    height: 84vh;
+}
+
+button.navbar-toggler.d-lg-none.collapsed {
+    color: white;
+    background: white;
+}
+
+span.navbar-toggler-icon {
+    color: white !important;
+}
+
+.tongtien span.col-10 {
+  font-size: 20px;
+}
+
+span.col-8.sotongtien {
+  padding: 10px 10px;
+  background: #d0e1ff;
+  text-align: center;
+  font-weight: bold;
+  color: #5d34ff;
+  font-size: 20px;
+}
+
+li.list-group-item.thutu.col-1.text-center {
+  /* padding-left: 0px; */
+  /* padding-right: 0px; */
+  text-align: center !important;
+}
+
+li.list-group-item.giaca.col-2.font-weight-bold.text-center {
+  color: red;
+  font-size: 17px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+li.list-group-item.tensanpham.col-6.font-weight-bold {
+  color: #0000ca;
+  font-size: 18px;
+}
+
+span.badge.badge-primary {
+  float: inherit;
+}
+
+li.list-group-item.soluong.col-1.text-center {
+  text-align: center !important;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+span.badge.badge-primary {
+  font-size: 16px;
+}
+@media only screen and (max-width: 768px) and (min-width: 512px) {
+
+  .tongtien span.col-9 {
+    font-size: 16px;
+  }
+
+  span.col-2.sotongtien {
+    font-size: 15px;
+  }
+
+  span.badge.badge-primary {
+    font-size: 12px;
+  }
+
+  li.list-group-item.giaca.col-2.font-weight-bold.text-center {
+    font-size: 12px;
+  }
+
+  li.list-group-item.tensanpham.col-6.font-weight-bold {
+    font-size: 16px;
+  }
+  .tongtien span.col-8 {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 512px) {
+
+
+  .tongtien span.col-9 {
+    font-size: 12px;
+  }
+
+  span.col-2.sotongtien {
+    font-size: 10px;
+  }
+  span.badge.badge-primary {
+    font-size: 8px;
+  }
+
+  li.list-group-item.giaca.col-2.font-weight-bold.text-center {
+    font-size: 9px;
+  }
+
+  li.list-group-item.tensanpham.col-6.font-weight-bold {
+    font-size: 14px;
+  }
+  .tongtien span.col-8 {
+    font-size: 12px
+  }
+}
+a.giohang {
+  color: black !important;
+}
+.tongtien span.col-2, span.col-8 {
+  font-size: 20px;
+}

@@ -2,12 +2,11 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Trang chủ</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Giỏ hàng</title>
   <!-- thêm các link -->
-
   <link href="css/bootstrap.css" rel="stylesheet" />
 
   <link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
@@ -15,27 +14,27 @@
   <link href="css/ct-navbar.css" rel="stylesheet" />
 
   <!--     Font Awesome     -->
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link href="http://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="css/home.css" />
+  <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap&subset=vietnamese"
+    rel="stylesheet">
 
   <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
   <script src="js/ct-navbar.js"></script>
   <script src="js/bootstrap.js" type="text/javascript"></script>
 
-  <!-- thêm các script -->
-  <script src="bower_components/sweetalert2/dist/sweetalert2.all.min.js"></script>
-  <script src="js/home.js"></script>
+  <script src="js/update.js"></script>
 </head>
 
 <body>
   <div id="navbar-full">
     <div id="navbar">
       <!--    
-        navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
-        -->
+            navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange  
+            -->
       <nav class="navbar navbar-ct-blue navbar-fixed-top navbar-transparent" role="navigation">
+
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -48,9 +47,9 @@
             </button>
             <a class="navbar-brand navbar-brand-logo" href="/">
               <div class="logo">
-                <img src="https://s3.amazonaws.com/creativetim_bucket/new_logo.png" />
+                <img src="https://s3.amazonaws.com/creativetim_bucket/new_logo.png">
               </div>
-              <div class="brand">Project</div>
+              <div class="brand"> Project</div>
             </a>
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -67,17 +66,6 @@
                   <i class="pe-7s-mail fa fa-home"></i>
                   <p>Trang chủ</p>
                 </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="pe-7s-user fa fa-list"></i>
-                  <p>Sản phẩm <b class="caret"></b></p>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="dienthoai"><a href="#">Điện thoại</a></li>
-                  <li class="maytinh"><a href="#">Máy tính xách tay</a></li>
-                  <li class="tainghe"><a href="#">Tai nghe di động</a></li>
-                </ul>
               </li>
               <li>
                 <a href="/shopping-cart">
@@ -96,9 +84,6 @@
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <div style="max-width: 30px; max-height: 30px; border-radius: 50%; overflow: hidden; display: inline-block;">
-                    <img src="<%= user.avatar %>" alt="" class="w-100 h-100">
-                  </div>
                   <i class="pe-7s-user fa fa-user"></i>
                   <p><%= user.username %> <b class="caret"></b></p>
                 </a>
@@ -110,35 +95,60 @@
             </ul>
             <form class="navbar-form navbar-right navbar-search-form" role="search">
               <div class="form-group">
-                <input type="text" value="" class="form-control" placeholder="Search..." />
+                <input type="text" value="" class="form-control" placeholder="Search...">
               </div>
             </form>
-          </div>
-          <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
+
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
       </nav>
       <div class="blurred-container">
-        <div class="img-src" style="background: url(../images/tech.jpeg) no-repeat;"></div>
+        <div class="img-src d-flex justify-content-center align-items-center">
+          <div class="tieude d-inline-block"
+            style="color: white; font-family: 'Noto Sans', sans-serif; font-size: 40px;">Cập nhật sản phẩm</div>
+        </div>
       </div>
-    </div>
-    <!--  end navbar -->
+    </div><!--  end navbar -->
     <!-- <form action="/update" method="post" enctype="multipart/form-data"> -->
   </div>
-  <div class="container pb-5">
-    <div class="row khungthaydoi">
-      <%- include('dienthoai'); %>
-    </div>
-    <div class="row mt-5">
-      <p class="text-center">Môn học đồ án Project 1</p>
-      <p class="text-center">Giảng viên hướng dẫn: Thầy Nguyễn Bình Minh</p>
-      <p class="text-center">
-        @2019 Người thực hiện:
-        <a href="https://github.com/chungphamvan">ChungPhamVan</a>
-      </p>
+  <div class="main">
+    <div class="container tim-container" style="max-width: 800px; padding-top: 50px;">
+      <div class="row col-12">
+        <div class="form-group">
+          <label for="name">Tên sản phẩm</label>
+          <input type="text" placeholder="product's name" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="loai">Loại sản phẩm (viết liền không dấu)</label>
+          <input type="text" placeholder="product's kind" class="form-control loai" id="loai">
+        </div>
+        <div class="form-group">
+          <label for="giachinh">Giá chính</label>
+          <input type="text" placeholder="product's main price" class="form-control giachinh" id="giachinh">
+        </div>
+        <div class="form-group">
+          <label for="giaphu">Giá phụ</label>
+          <input type="text" placeholder="product's secondary price" class="form-control giaphu" id="giaphu">
+        </div>
+        <div class="form-group">
+          <label for="anh">Ảnh sản phẩm</label>
+          <input type="file" placeholder="product's image file" class="form-control anh" id="anh">
+        </div>
+        <div class="w-100 d-flex justify-content-center mb-5">
+          <button class="w-100 btn btn-primary gui btn-lg" id="gui">Gửi</button>
+        </div>
+      </div>
+      <div class="row mt-5 mb-5">
+        <p class="text-center">Môn học đồ án Project 1</p>
+        <p class="text-center">Giảng viên hướng dẫn: Thầy Nguyễn Bình Minh</p>
+        <p class="text-center">
+          @2019 Người thực hiện:
+          <a href="https://github.com/chungphamvan">ChungPhamVan</a>
+        </p>
+      </div>
     </div>
   </div>
-  <img src="<%= user.avatar %>" alt="">
+  <!-- </form> -->
 </body>
 
 </html>

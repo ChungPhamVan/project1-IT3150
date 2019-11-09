@@ -1,0 +1,25 @@
+<h1 class="w-100 text-center">Sản phẩm điện thoại di động</h1>
+<ul class="danhsachsanpham danhsachdienthoai">
+  <% products.forEach(product => { %>
+  <li class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-5" data-uid="<%= product._id %>">
+    <div class="khung1sanpham">
+      <div class="phananh">
+        <img src="data:<%= product.file.contentType %>; base64, <%= bufferToBase64(product.file.data) %>" alt="">
+      </div>
+      <div class="phanchu text-center mt-4">
+        <div class="ten">
+          <%= product.productname %>
+        </div>
+        <div class="giaca mt-3">
+          <span class="giachinh"><%= product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") %></span>
+          <span class="giaphu"><%= product.giaphu.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") %></span>
+        </div>
+        <div class="nutmua mt-3">
+          <button type="button" class="btn btn-primary btn-outline-primary nutmuasanpham" data-uid="dt1">Chọn sản
+            phẩm</button>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% }); %>
+</ul>

@@ -1,0 +1,29 @@
+<h1 class="w-100 text-center">Sản phẩm máy tính xách tay</h1>
+<ul class="danhsachsanpham danhsachmaytinh">
+  <% products.forEach(product => { %>
+  <li class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-5" data-uid="<%= product._id %>">
+    <div class="khung1sanpham">
+      <div class="phananh  position-relative">
+        <img src="data:<%= product.file.contentType %>; base64, <%= bufferToBase64(product.file.data) %>" alt="">
+        <div class="nenxanh position-absolute w-100 h-100 top-0"></div>
+        <div class="thanh thanh1 position-absolute"></div>
+        <div class="thanh thanh2 position-absolute"></div>
+        <div class="sanphamchinhhang tren position-absolute">SẢN PHẨM</div>
+        <div class="sanphamchinhhang duoi position-absolute">CHÍNH HÃNG</div>
+      </div>
+      <div class="phanchu text-center mt-4">
+        <div class="ten">
+          <%= product.productname %>
+        </div>
+        <div class="giaca mt-3">
+          <span class="giachinh"><%= product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") %></span>
+          <span class="giaphu"><%= product.giaphu.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") %></span>
+        </div>
+        <div class="nutmua mt-3">
+          <button type="button" class="btn btn-outline-primary nutmuasanpham" data-uid="mt1">Chọn sản phẩm</button>
+        </div>
+      </div>
+    </div>
+  </li>
+  <% }); %>
+</ul>
