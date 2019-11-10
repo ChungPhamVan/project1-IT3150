@@ -27,7 +27,7 @@ UserSchema.statics = {
     return this.create(item);
   },
   timKiemTheoId(id) {
-    return this.findById(id).exec();
+    return this.findById(id, {_id: 1, username: 1, avatar: 1}).exec();
   },
   timKiemTheoEmail(email) {
     return this.findOne({

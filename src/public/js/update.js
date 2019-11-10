@@ -1,4 +1,18 @@
 $(document).ready(function () {
+  let username = $("div.username").text();
+  if(username && username !== "chung.pv172983") {
+    Swal.fire({
+      title: "Không thể thực hiện",
+      text: `Bạn không phải quản trị viên của trang web, do đó không thể thực hiện tác vụ này`,
+      icon: 'error',
+      confirmButtonText: "Ok",
+      confirmButtonColor: "green",
+      width: "70rem",
+      heightAuto: false,
+      height: "30rem",
+      allowOutsideClick: true
+    }).then(result => {});
+  }
   $("#gui").unbind("click").on("click", function() {
     let formData = new FormData();
     formData.append("name", $("input#name").val());
