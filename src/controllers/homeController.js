@@ -74,7 +74,6 @@ let getHome = async (req, res, next) => {
   let userId = req.user._id;
   userIdAll = req.user._id;
   let thongTinCart = await cart.getThongTinGioHang(userId);
-  console.log(req.user);
   res.render("main/master.ejs", {
     user: req.user, // user đã được gửi qua session trong file passport.js rồi,
     products: products,
