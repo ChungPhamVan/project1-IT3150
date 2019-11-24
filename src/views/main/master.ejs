@@ -15,7 +15,9 @@
   <link href="css/ct-navbar.css" rel="stylesheet" />
 
   <!--     Font Awesome     -->
-  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link
+    href="http://blackrockdigital.github.io/startbootstrap-stylish-portfolio/vendor/fontawesome-free/css/all.min.css"
+    rel="stylesheet" type="text/css">
 
   <link href="http://fonts.googleapis.com/css?family=Grand+Hotel" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="css/home.css" />
@@ -56,59 +58,76 @@
           </div>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="javascript:void(0);" data-toggle="search" class="hidden-xs">
-                  <i class="pe-7s-search fa fa-search"></i>
-                  <p>Search</p>
-                </a>
-              </li>
-              <li>
-                <a href="/">
-                  <i class="pe-7s-mail fa fa-home"></i>
-                  <p>Trang chủ</p>
-                </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="pe-7s-user fa fa-list"></i>
-                  <p>Sản phẩm <b class="caret"></b></p>
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="dienthoai"><a href="#">Điện thoại</a></li>
-                  <li class="maytinh"><a href="#">Máy tính xách tay</a></li>
-                  <li class="tainghe"><a href="#">Tai nghe di động</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="/shopping-cart">
-                  <i class="pe-7s-mail fa fa-shopping-cart"></i>
-                  <% if(amountProducts) { %>
-                  <span class="badge badge-primary"><%= amountProducts.length %></span>
-                  <% } %>
-                  <p>Giỏ hàng</p>
-                </a>
-              </li>
-              <li>
-                <a href="/update">
-                  <i class="pe-7s-mail fa fa-edit"></i>
-                  <p>Cập nhật</p>
-                </a>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <div style="max-width: 30px; max-height: 30px; border-radius: 50%; overflow: hidden; display: inline-block;">
-                    <img src="<%= user.avatar %>" alt="" class="w-100 h-100">
-                  </div>
-                  <i class="pe-7s-user fa fa-user"></i>
-                  <p><%= user.username %> <b class="caret"></b></p>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Hồ sơ</a></li>
-                  <li><a href="/logout">Đăng xuất</a></li>
-                </ul>
-              </li>
-            </ul>
+            <% if(user) { %>
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="javascript:void(0);" data-toggle="search" class="hidden-xs">
+                    <i class="pe-7s-search fa fa-search"></i>
+                    <p>Search</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    <i class="pe-7s-mail fa fa-home"></i>
+                    <p>Trang chủ</p>
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="pe-7s-user fa fa-list"></i>
+                    <p>Sản phẩm <b class="caret"></b></p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="dienthoai"><a href="#">Điện thoại</a></li>
+                    <li class="maytinh"><a href="#">Máy tính xách tay</a></li>
+                    <li class="tainghe"><a href="#">Tai nghe di động</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="/shopping-cart">
+                    <i class="pe-7s-mail fa fa-shopping-cart"></i>
+                    <% if(amountProducts) { %>
+                    <span class="badge badge-primary"><%= amountProducts.length %></span>
+                    <% } %>
+                    <p>Giỏ hàng</p>
+                  </a>
+                </li>
+                <li>
+                  <a href="/update">
+                    <i class="pe-7s-mail fa fa-edit"></i>
+                    <p>Cập nhật</p>
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <div style="max-width: 30px; max-height: 30px; border-radius: 50%; overflow: hidden; display: inline-block;">
+                    
+                    </div>
+                    <i class="pe-7s-user fa fa-user"></i>
+                    <p><%= user.username %> <b class="caret"></b></p>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Hồ sơ</a></li>
+                    <li><a href="/logout">Đăng xuất</a></li>
+                  </ul>
+                </li>
+              </ul>
+            <% } else { %> 
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/login-register" id="dangnhap">
+                    <i class="pe-7s-mail fas fa-sign-in-alt"></i>
+                    <p>Đăng nhập</p>
+                  </a>
+                </li>
+                <li> 
+                  <a href="/login-register">
+                    <i class="pe-7s-mail fas fa-sign"></i>
+                    <p>Đăng ký</p>
+                  </a>
+                </li>
+              </ul>
+            <% } %>
             <form class="navbar-form navbar-right navbar-search-form" role="search">
               <div class="form-group">
                 <input type="text" value="" class="form-control" placeholder="Search..." />
@@ -139,7 +158,6 @@
       </p>
     </div>
   </div>
-  <img src="<%= user.avatar %>" alt="">
 </body>
 
 </html>

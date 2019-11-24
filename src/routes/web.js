@@ -2,7 +2,7 @@
 import express from "express";
 import multer from "multer";
 // import các file
-import { auth, home } from "../controllers/index.js";
+import { auth, home, product, admin } from "../controllers/index.js";
 import { authValid } from "../validation/index.js";
 import passport from "passport";
 import initPassportLocal from "../controllers/passportController/local";
@@ -16,7 +16,10 @@ initPassportGoogle(); // xác thực qua google
 let router = express.Router();
 let upload = multer({ dest: "./public/images/upload" });
 let initRoutes = app => {
-  router.get("/", auth.kiemTraDangNhapChua, home.getHome); // vào trang chủ
+  router.get("/",
+    // auth.kiemTraDangNhapChua,
+    home.getHome
+  ); // vào trang chủ
   router.get(
     "/login-register",
     auth.kiemTraDangXuatChua,
@@ -91,6 +94,15 @@ let initRoutes = app => {
     "/getproducts/:kindProduct",
     auth.kiemTraDangNhapChua,
     home.getProductsInHome
+  );
+  router.get("/admin", auth.kiemTraDangNhapChua, admin.getAdmin);
+  router.get("/plususer", auth.kiemTraDangNhapChua, admin.plusUser);
+  router.get("/showlistuser", auth.kiemTraDangNhapChua, admin.showListUsers);
+  router.get("/minususer", auth.kiemTraDangNhapChua, admin.minusUser);
+  router.get("/removeuser", auth.kiemTraDangNhapChua, admin.removeUser);
+  router.get("/removeproduct", auth.kiemTraDangNhapChua, product.removeProduct);
+  router.get("/:id",
+    product.showProduct
   );
 
   return app.use("/", router);

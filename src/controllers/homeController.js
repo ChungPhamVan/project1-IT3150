@@ -71,11 +71,13 @@ let showCart = async (req, res, next) => {
 
 let getHome = async (req, res, next) => {
   let products = await ProductModel.getProductTheoLoai("dienthoai");
-  let userId = req.user._id;
-  userIdAll = req.user._id;
-  let thongTinCart = await cart.getThongTinGioHang(userId);
+  let userId = req.user ? req.user._id: null;
+  let thongTinCart = null;
+  if(userId) {
+    thongTinCart = await cart.getThongTinGioHang(userId);
+  }
   res.render("main/master.ejs", {
-    user: req.user, // user đã được gửi qua session trong file passport.js rồi,
+    user: req.user ? req.user : null, // user đã được gửi qua session trong file passport.js rồi,
     products: products,
     amountProducts: thongTinCart !== null ? thongTinCart.products : null,
     bufferToBase64: bufferToBase64
@@ -116,26 +118,36 @@ let updatePost = async (req, res, next) => {
       }
       return res.status(500).send(error);
     }
-
     try {
+      let id = req.body.id;
       let name = req.body.name;
       let loai = req.body.loai;
       let giachinh = req.body.giachinh;
       let giaphu = req.body.giaphu;
       let anh = req.file;
-
-      let sanPhamMoi = await product.taoSanPhamMoi(
-        name,
-        loai,
-        giachinh,
-        giaphu,
-        anh
-      );
-
+      let updateSanPham;
+      if(typeof(id) === "undefined") {
+        updateSanPham = await product.taoSanPhamMoi(
+          name,
+          loai,
+          giachinh,
+          giaphu,
+          anh
+        );
+      } else {
+        updateSanPham = await product.updateSanPham(
+          id,
+          name,
+          loai,
+          giachinh,
+          giaphu,
+          anh
+        );
+      }
       await fsExtra.remove(
-        `src/public/images/upload/${sanPhamMoi.file.fileName}`
+        `src/public/images/upload/${updateSanPham.file.fileName}`
       );
-      return res.status(200).send({ message: newMessage });
+      return res.status(200).send({ sanPhamMoi: sanPhamMoi, updateSanPham: updateSanPham });
     } catch (error) {
       return res.status(500).send(error);
     }

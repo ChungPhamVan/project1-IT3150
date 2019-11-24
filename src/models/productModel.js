@@ -23,6 +23,14 @@ ProductModel.statics = {
   },
   timSanPham(id) {
     return this.findById(id).exec();
+  },
+  deleteById(id) {
+    return this.deleteOne({
+      "_id": id
+    }).exec();
+  },
+  updateProduct(id, updateProductItem) {
+    return this.findByIdAndUpdate(id, updateProductItem).exec();
   }
 };
 module.exports = mongoose.model("product", ProductModel);
