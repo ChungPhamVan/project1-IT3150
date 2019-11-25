@@ -144,7 +144,7 @@ $(document).ready(function () {
               }">
             <div class="khung1sanpham">
               <div class="phananh d-flex justify-content-center">
-                <a class="w-100 h-100" href="/${product._id}">
+                <a class="w-100 h-100 text-center" href="/${product._id}">
                   <div class="d-inline-block position-relative">
                     
                     <img src="data:${
