@@ -160,6 +160,7 @@ function fixProduct() {
             }
           });
           parent.next().find("button.btn").click();
+          location.reload();
         }
       });
     }
